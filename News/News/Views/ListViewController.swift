@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  News
 //
-//  Created by Pavana, Kc (623-Extern) on 01/02/21.
+//  Created by PavanaKC on 01/02/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
 
