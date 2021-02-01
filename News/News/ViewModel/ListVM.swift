@@ -12,7 +12,7 @@ final class ListVM: BaseVM {
     var newsList = [News]()
      
     
-    /// Call API to fetch News list
+    /// Make API Call to fetch News list
     /// - Parameter completion: Block to return control
     func getNews(completion: @escaping (Bool) -> Void) {
         webservice.getRequest(URLString: URLConstants.newsListUrl.rawValue + "\(apiKey)") { [weak self] result in
@@ -60,6 +60,7 @@ final class ListVM: BaseVM {
                         news.author = eachData[ResponseKey.author.rawValue] as? String
                         news.explanation = eachData[ResponseKey.description.rawValue] as? String
                         news.imageUrl = eachData[ResponseKey.imageUrl.rawValue] as? String
+                        news.articleUrl = eachData[ResponseKey.articleUrl.rawValue] as? String
                         newsList.append(news)
                     }
                     catch {

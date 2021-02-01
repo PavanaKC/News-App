@@ -30,18 +30,12 @@ final class NewsListTableCell: UITableViewCell {
     private func setupUI() {
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
-        
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        containerView.layer.shadowColor = UIColor.red.cgColor
-        containerView.layer.shadowOpacity = 0.23
-        containerView.layer.shadowRadius = 4
     }
     
     override func prepareForReuse() {
          super.prepareForReuse()
         newsImage.image = nil
      }
-    
     
     /// Populate data to cell
     /// - Parameters:

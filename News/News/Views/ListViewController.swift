@@ -25,6 +25,9 @@ final class ListViewController: BaseViewController {
     }
     
     //MARK: Private Functions
+    
+    
+    /// Set up UI for Table View
     private func setupTableView() {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: tableFooterHeight))
         footerView.backgroundColor = .clear
@@ -33,6 +36,7 @@ final class ListViewController: BaseViewController {
         newsListTableView.estimatedRowHeight = tableRowHeight
     }
     
+    /// Initialise API call to fetch data
     private func fetchNewsList() {
         listVM.getNews { [weak self] isSuccess in
             guard let `self` = self else { return }
@@ -41,6 +45,10 @@ final class ListViewController: BaseViewController {
             } else {
                 self.showToastLabel(message: "Error while fetching news Information. Try again after sometime")
             }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            self.newsListTableView.reloadData()
         }
     }
 }
@@ -74,6 +82,10 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = mainStoryboard.instantiateViewController(identifier: "DetailsViewController") as DetailsViewController
+        detailVC.currentNews = listVM.newsList[indexPath.row]
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true, completion: nil)
     }
 }

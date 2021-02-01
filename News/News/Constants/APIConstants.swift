@@ -15,6 +15,11 @@ enum ResponseKey: String {
     case author = "author"
     case description = "description"
     case imageUrl = "urlToImage"
+    case articleUrl = "url"
+    case likes = "likes"
+    case likesCount = "likesCount"
+    case comments = "comments"
+    case commentsCount = "commentsCount"
 }
 
 
