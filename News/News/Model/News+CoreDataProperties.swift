@@ -2,7 +2,7 @@
 //  News+CoreDataProperties.swift
 //  News
 //
-//  Created by PavanaKC on 01/02/21.
+//  Created by Pavana, Kc (623-Extern) on 01/02/21.
 //
 //
 
@@ -19,6 +19,10 @@ extension News {
     @NSManaged public var author: String?
     @NSManaged public var explanation: String?
     @NSManaged public var headline: String?
+    @NSManaged public var imageUrl: String?
+    @NSManaged public var articleUrl: String?
+    @NSManaged public var likesCount: Int16
+    @NSManaged public var commentsCount: Int16
 
 }
 
